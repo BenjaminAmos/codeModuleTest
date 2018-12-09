@@ -1,0 +1,7 @@
+{
+    "id" : "codeModuleTest",
+    "version" : "0.1.0",
+    "displayName" : "Code Module Test",
+    "description" : "A series of examples used to test code in modules.",
+    "dependencies" :  []
+}
