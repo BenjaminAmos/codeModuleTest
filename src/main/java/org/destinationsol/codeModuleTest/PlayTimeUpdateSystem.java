@@ -23,10 +23,9 @@ import org.destinationsol.game.attributes.RegisterUpdateSystem;
 import org.destinationsol.game.screens.MainGameScreen;
 import org.destinationsol.ui.FontSize;
 import org.destinationsol.ui.SolUiBaseScreen;
-import org.destinationsol.ui.SolUiScreen;
 import org.destinationsol.ui.UiDrawer;
 
-@RegisterUpdateSystem(priority = 1)
+@RegisterUpdateSystem
 public class PlayTimeUpdateSystem implements UpdateAwareSystem {
     private final PlayTimeLabelScreen playTimeLabelScreen;
     private float totalPlayTime;
@@ -38,15 +37,9 @@ public class PlayTimeUpdateSystem implements UpdateAwareSystem {
     @Override
     public void update(SolGame game, float timeStep) {
         SolApplication application = game.getSolApplication();
-        if (!application.getInputManager().isScreenOn(playTimeLabelScreen)) {
-            SolUiScreen topScreen = application.getInputManager().getTopScreen();
-            if (topScreen.getClass() == MainGameScreen.class) {
-                //HACK: The MainGameScreen relies on being the top screen displayed
-                application.getInputManager().setScreen(application, playTimeLabelScreen);
-                application.getInputManager().addScreen(application, topScreen);
-            } else {
-                application.getInputManager().addScreen(application, playTimeLabelScreen);
-            }
+        if (playTimeLabelScreen != null && application.getInputManager().getTopScreen() instanceof MainGameScreen
+                && !game.getScreens().mainGameScreen.hasOverlay(playTimeLabelScreen)) {
+            game.getScreens().mainGameScreen.addOverlayScreen(playTimeLabelScreen);
         }
 
         totalPlayTime += timeStep;
