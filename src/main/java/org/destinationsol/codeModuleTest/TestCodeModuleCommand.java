@@ -15,20 +15,17 @@
  */
 package org.destinationsol.codeModuleTest;
 
-import org.destinationsol.game.Console;
-import org.destinationsol.game.console.ConsoleInputHandler;
+import org.destinationsol.game.SolGame;
+import org.destinationsol.game.console.annotations.Command;
+import org.destinationsol.game.console.annotations.Game;
+import org.destinationsol.game.console.annotations.RegisterCommands;
 
-public class TestCodeModuleCommand implements ConsoleInputHandler {
+@RegisterCommands
+public class TestCodeModuleCommand {
     private static final String COMMAND_OUTPUT_TEXT = "This is the response to the TestCodeModule command.";
 
-    /**
-     * Handles user input from console.
-     *
-     * @param input   User input from console
-     * @param console Console from where the input originates
-     */
-    @Override
-    public void handle(String input, Console console) {
-        console.println(COMMAND_OUTPUT_TEXT);
+    @Command
+    public void handle(@Game SolGame game) {
+        game.getScreens().consoleScreen.getConsole().addMessage(COMMAND_OUTPUT_TEXT);
     }
 }
