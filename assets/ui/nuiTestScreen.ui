@@ -1,0 +1,17 @@
+{
+  "type": "NUITestScreen",
+  "skin": "engine:default",
+  "contents": {
+    "type": "RelativeLayout",
+    "contents": [
+      {
+        "type": "UILabel",
+        "id": "nuiTestLabel",
+        "layoutInfo": {
+          "position-top":  {},
+          "position-horizontal-center": {}
+        }
+      }
+    ]
+  }
+}
