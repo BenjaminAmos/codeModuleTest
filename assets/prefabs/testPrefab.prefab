@@ -1,0 +1,8 @@
+{
+  "entity": {
+    "CodeModuleTestComponent": {
+      "testString": "abcd",
+      "testBool": true
+    }
+  }
+}
