@@ -12,7 +12,7 @@ public class CodeModuleTestComponent implements Component<CodeModuleTestComponen
      * @param other The component to copy
      */
     @Override
-    public void copy(CodeModuleTestComponent other) {
+    public void copyFrom(CodeModuleTestComponent other) {
         this.testString = other.testString;
         this.testBool = other.testBool;
     }

@@ -25,11 +25,14 @@ import org.destinationsol.ui.FontSize;
 import org.destinationsol.ui.SolUiBaseScreen;
 import org.destinationsol.ui.UiDrawer;
 
+import javax.inject.Inject;
+
 @RegisterUpdateSystem
 public class PlayTimeUpdateSystem implements UpdateAwareSystem {
     private final PlayTimeLabelScreen playTimeLabelScreen;
     private float totalPlayTime;
 
+    @Inject
     public PlayTimeUpdateSystem() {
         playTimeLabelScreen = new PlayTimeLabelScreen();
     }
